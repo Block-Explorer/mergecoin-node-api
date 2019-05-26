@@ -1,6 +1,6 @@
-# chaincoin-node-api
+# mergecoin-node-api
 
-chaincoin-node-api is an Express middleware plugin that easily exposes a URL structure for interfacing with a chaincoind Chaincoin wallet.
+mergecoin-node-api is an Express middleware plugin that easily exposes a URL structure for interfacing with a mergecoind mergecoin wallet.
 
 NB: The middleware is experimental at present. Certain JSON-RPC methods are not supported yet and/or experimental. These are methods with more complex parameters that do not fit easily into a query string:
 
@@ -18,7 +18,7 @@ These methods may be added in the future. If there any other problems with the o
 ## Install
 
 ```javascript
-npm install chaincoin-node-api
+npm install mergecoin-node-api
 ```
 
 ## How to use
@@ -26,11 +26,11 @@ npm install chaincoin-node-api
 ### Node.js
 
 ```javascript
-var chaincoinapi = require('chaincoin-node-api');
+var mergecoinapi = require('mergecoin-node-api');
 var express = require('express');
 var app = express();
 
-//Username and password relate to those set in the chaincoin.conf file
+//Username and password relate to those set in the mergecoin.conf file
 
 var wallet = {
   host: 'localhost',
@@ -39,9 +39,9 @@ var wallet = {
   pass: 'rpcpassword'
 };
 
-chaincoinapi.setWalletDetails(wallet);
-chaincoinapi.setAccess('default-safe'); //Access control
-app.use('/chaincoin/api', chaincoinapi.app); //Bind the middleware to any chosen url
+mergecoinapi.setWalletDetails(wallet);
+mergecoinapi.setAccess('default-safe'); //Access control
+app.use('/mergecoin/api', mergecoinapi.app); //Bind the middleware to any chosen url
 
 app.listen(3000);
 ```
@@ -54,7 +54,7 @@ Just add the method name after the binded url.
 
 For example:
 
-* http://localhost:5000/chaincoin/api/getinfo
+* http://localhost:5000/mergecoin/api/getinfo
 
 This returns data exactly as would be expected from the JSON-RPC api.
 
@@ -82,7 +82,7 @@ This returns data exactly as would be expected from the JSON-RPC api.
 
 Parameters are sent via a query string:
 
-* http://localhost:3000/chaincoin/api/gettransaction?txid=d6c7e35ff9c9623208c22ee37a118ad523ae6c2d137d10053739cb03dbac62e0
+* http://localhost:3000/mergecoin/api/gettransaction?txid=d6c7e35ff9c9623208c22ee37a118ad523ae6c2d137d10053739cb03dbac62e0
 
 ```javascript
 {
@@ -111,9 +111,9 @@ Parameters are sent via a query string:
 
 If you have encrypted your wallet.dat you need to set the passphrase before attaching the middleware.
 ```javascript
-chaincoinapi.setWalletDetails(wallet);
-chaincoinapi.setWalletPassphrase(passphrase);
-app.use('/chaincoin/api', chaincoinapi.app);
+mergecoinapi.setWalletDetails(wallet);
+mergecoinapi.setWalletPassphrase(passphrase);
+app.use('/mergecoin/api', mergecoinapi.app);
 ```
 
 ### .setAccces(type, accesslist);
@@ -126,7 +126,7 @@ The 'only' type only exposes the methods given by an array of methods as the acc
 
 ```javascript
 //Only allow the getinfo method
-chaincoinapi.setAccess('only', ['getinfo']);
+mergecoinapi.setAccess('only', ['getinfo']);
 ```
 
 #### 'restrict'
@@ -134,19 +134,19 @@ chaincoinapi.setAccess('only', ['getinfo']);
 The 'restrict' type prevents methods from being accessed.
 
 ```javascript
-chaincoinapi.setAccess('restrict', ['dumpprivkey', 'sendmany']);
+mergecoinapi.setAccess('restrict', ['dumpprivkey', 'sendmany']);
 ```
 
 ### Access Profiles
 
-chaincoin-node-api has predefined access profiles to make it easy to set up.
+mergecoin-node-api has predefined access profiles to make it easy to set up.
 
 #### 'default-safe'
 
 It prevents 'dumpprivkey' and 'walletpassphrasechange' being accessed. This prevents potential theft. Also removes the 'stop' command to prevent someone from stopping the server.
 
 ```javascript
-chaincoinapi.setAccess('default-safe');
+mergecoinapi.setAccess('default-safe');
 ```
 
 #### 'read-only'
@@ -154,19 +154,19 @@ chaincoinapi.setAccess('default-safe');
 This profile only exposes methods that show information. No methods that can send/alter the wallet are exposed.
 
 ```javascript
-chaincoinapi.setAccess('read-only');
+mergecoinapi.setAccess('read-only');
 ```
 
 ## Projects
 
-chaincoin-node-api is used in the following projects:
+mergecoin-node-api is used in the following projects:
 
-* [Ciquidus Alpha](https://explorer.chaincoin.org)
+* [Ciquidus Alpha](https://explorer.mergecoin.org)
 
 
 # Licence
 
-Copyright (C) 2017 The Chaincoin Community
+Copyright (C) 2017 The mergecoin Community
 Copyright (C) 2013 Niel de la Rouviere
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:

@@ -1,22 +1,20 @@
 {
-  "name": "mergecoin-node-api",
+	"name": "mergecoin-node-api",
 	"author": "Aviator",
-	"description": "mergecoin-node-api is an Express middleware plugin that exposes URLs for quick development and interfacing with a chaincoind chaincoin wallet.",
-  "version": "1.0.5",
+	"description": "mergecoin-node-api is an Express middleware plugin that exposes URLs for quick development and interfacing with a mergecoind mergecoin wallet.",
+	"version": "1.0.6",
 	"main": "lib/api.js",
-	"repository" : {
+	"repository": {
 		"type": "git",
-		"url": "https://github.com/suprnurd/chaincoin-node-api.git"
+		"url": "https://github.com/Block-Explorer/mergecoin-node-api.git"
 	},
-
-	"dependencies":{
-		"express": "4.2.x",
+	"dependencies": {
+		"express": "4.17.1",
 		"node-chaincoin": "1.0.3"
 	},
-
 	"keywords": [
-    "mergecoin",
-    "node",
-    "api"
-  ]
+		"mergecoin",
+		"node",
+		"api"
+	]
 }
