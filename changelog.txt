@@ -4,3 +4,4 @@ v1.0.0 - updated to work with node-mergecoin
 v1.0.2 - added ability to request masternode list and votes
 v1.0.3 - quick compatibility for new 0.16x masternode count
 v1.0.6 - Upgrade Express to 4.1.7
+v1.0.9 - Fix masternode commmad beeing removed

@@ -2,7 +2,7 @@
 	"name": "mergecoin-node-api",
 	"author": "Aviator",
 	"description": "mergecoin-node-api is an Express middleware plugin that exposes URLs for quick development and interfacing with a mergecoind mergecoin wallet.",
-	"version": "1.0.8",
+	"version": "1.0.9",
 	"main": "lib/api.js",
 	"repository": {
 		"type": "git",
@@ -10,7 +10,7 @@
 	},
 	"dependencies": {
 		"express": "4.17.1",
-		"node-chaincoin": "1.0.3"
+		"node-mergecoin": "1.0.5"
 	},
 	"keywords": [
 		"mergecoin",
